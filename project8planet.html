@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Planet</title>
+</head>
+<body>
+    <h1>JVASCRIPT 201 FINAL PROJECT</h1>
+
+    <h1>PLANET CHARACTER GENRATER</h1>
+    <strong>Name:</strong>
+    <div id="name">...</div>
+    <strong>Orbital Period:</strong>
+    <div id="orbital_period">...</div>
+    <strong>Roatation Period:</strong>
+    <div id="rotation_period">...</div>
+    <strong>Gravity:</strong>
+    <div id="gravity">...</div>
+    <strong>Surface water:</strong>
+    <div id="surface_water">...</div>
+    <strong>Papulation:</strong>
+    <div id="papulation">...</div>
+    <button class="getRandomCharacter">Get Character</button>
+
+    <script>
+       const name = document.getElementById("name");
+    const orbital_period = document.getElementById("orbital_period");
+    const rotation_period = document.getElementById("rotation_period");
+    const gravity = document.getElementById("gravity");
+    const surface_water = document.getElementById("surface_water");
+    const papulation = document.getElementById("papulation");
+    const button = document.querySelector(".getRandomCharacter");
+
+
+    button.addEventListener('click', (p) => {
+
+        p.preventDefault()
+        name.innerHTML = '<em>Loading...</em>'
+        orbital_period.innerHTML = '<em>Loading...</em>'
+        rotation_period.innerHTML = '<em>Loading...</em>'
+        gravity.innerHTML = '<em>Loading...</em>'
+        surface_water.innerHTML = '<em>Loading...</em>'
+        papulation.innerHTML = '<em>Loading...</em>'
+        
+        const randomNumber = Math.ceil(Math.random() * 10)
+        fetch(`https://swapi.dev/api/planets/${randomNumber}/`)
+            .then(response => response.json())
+            .then(character => {
+                name.innerHTML = character['name']
+                orbital_period.innerHTML = character['orbital_period']
+                rotation_period.innerHTML = character['rotation_period']
+                surface_water.innerHTML = character['surface_water']
+                gravity.innerHTML = character['gravity']
+                papulation.innerHTML = character['papulation']
+            })
+        })
+    </script>
+         
+</body>
+</html>

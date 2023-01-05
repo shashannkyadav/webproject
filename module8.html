@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript project 201</title>
+</head>
+<body>
+    <h1>Javascript 201 final project</h1>
+
+    <h2>Star War Character genrater</h2>
+    <strong>Name:</strong>
+    <div id="name">...</div>
+    <strong>Skin Color:</strong>
+    <div id="skin_color">...</div>
+    <strong>Birth Year:</strong>
+    <div id="birth_year">...</div>
+    <button class="getRandomCharacter">Get Character</button>
+
+    <script>
+       const name = document.getElementById("name");
+    const skin_color = document.getElementById("skin_color");
+    const birth_year = document.getElementById("birth_year");
+    const button = document.querySelector(".getRandomCharacter");
+
+
+    button.addEventListener('click', (p) => {
+        p.preventDefault()
+        name.innerHTML = '<em>Loading...</em>'
+        skin_color.innerHTML = '<em>Loading...</em>'
+        birth_year.innerHTML = '<em>Loading...</em>'
+        
+        const randomNumber = Math.ceil(Math.random() * 83)
+        fetch(`https://swapi.dev/api/people/${randomNumber}/`)
+            .then(response => response.json())
+            .then(character => {
+                name.innerHTML = character['name']
+                skin_color.innerHTML = character['skin_color']
+                birth_year.innerHTML = character['birth_year']
+            })
+        })
+         
+    </script>
+</body>
+</html>

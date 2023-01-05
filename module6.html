@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module6</title>
+
+    <style>
+        *{
+            padding:0px;
+            margin:0px;
+            box-sizing:border-box;
+        }
+        #header{
+            background-color:brown;
+            color:#ffffff;
+            height:80px;
+            width:100%;
+            margin:0% 0%;
+            flex-basis:100%;
+            border-bottom:2px solid #0000ff;
+        }
+        #header ul li{
+            display:inline-block;
+            padding:40px 120px;
+        }
+        #layout{
+            position:relative;
+            overflow: hidden;
+            width:100%;
+        }
+        #header iframe{
+            position:absolute;
+            top:0%;
+            left:0%;
+            bottom:0%;
+            right:0%;
+            height:100%;
+            width:100%;
+        }
+        @media(max-width:640px){
+            #header ul li{
+                background-color:#aaa;
+                color:white;
+                border-bottom:2px solid orangered;
+                width:100%;
+                padding:50px 70px;
+            }
+        }
+        img{
+            width:100%;
+            height:auto;
+            padding-top:5px;
+        }
+        @media(max-width:640px){
+            img{
+                padding-top:63%;
+                height:auto;
+                width:100%;
+            
+            }
+        }
+        @media(max-width:640px){
+            iframe{
+                width:100%;
+                height:auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="layout">
+    <div id="header">
+        <ul>
+            <li>SERVICES</li>
+            <li>ABOUT US</li>
+            <li>OUR WORKS</li>
+            <li>REGISTER</li>
+        </ul>
+    </div>
+    <img src="./omodule/car4.jpg" alt="car image">
+    <hr>
+    <iframe width="1060" height="315" src="https://www.youtube.com/embed/wIaYlgAUEBI"
+     title="YouTube video player" frameborder="0"
+     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+     allowfullscreen></iframe>
+    </div>
+</body>
+</html>
